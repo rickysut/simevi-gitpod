@@ -19,14 +19,16 @@ class HomeController extends Controller
     
     public function index(Request $request)
     {   
-        if (Gate::allows('dashboard_access')){
+        $breadcrumb = trans('cruds.dashboard.title_singular');
+        return view('landing', compact('breadcrumb'));
+        /*if (Gate::allows('dashboard_access')){
             $breadcrumb = trans('cruds.dashboard.title_singular');
             return view('landing', compact('breadcrumb'));
         } else {
             if (Gate::allows('dashboardvip_access')){
                 return $this->vip($request);
             }
-        }
+        }*/
     
     }
 
