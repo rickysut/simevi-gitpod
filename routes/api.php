@@ -1,19 +1,33 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
+//getToken
+Route::post('getToken', 'Api\\AuthController@getToken');
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+Route::group(['as' => 'api.', 'namespace' => 'Api\V1\Admin', 'middleware' => ['auth:sanctum']], function () {
+    
+   
+    
+    // Provinsi
+    Route::apiResource('provinsis', 'ProvinsiApiController');
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+    // Kabupaten
+    Route::apiResource('kabupatens', 'KabupatenApiController');
+
+    // Kecamatan
+    Route::apiResource('kecamatans', 'KecamatanApiController');
+
+    // Desa
+    Route::apiResource('desas', 'DesaApiController');
+
+    // Satker
+    Route::apiResource('satkers', 'SatkerApiController');
+
+    // Rincian Output
+    Route::apiResource('rincian-outputs', 'RincianOutputApiController');
+
+    // Master Kegiatan
+    Route::apiResource('master-kegiatans', 'MasterKegiatanApiController');
+
+    // Data Renja
+    Route::apiResource('data-renjas', 'DataRenjaApiController');
 });
