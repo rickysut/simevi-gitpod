@@ -17,7 +17,7 @@ class KinerjaSerapanController extends Controller
     public function index(Request $request)
     {
         abort_if(Gate::denies('kinerja_serapan_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-       
+        
         $dtSatker = ($request->dtSatker??'');
         $dtYear = ($request->dtYear??'');
         
@@ -28,7 +28,7 @@ class KinerjaSerapanController extends Controller
         } else {
             $qryByYear = ' and globaldata.tahun = '. $dtYear;
         } 
-
+        
 
         if (($dtSatker == '')||($dtSatker == '0')){
             $qryBySatker = '';    
@@ -156,7 +156,7 @@ class KinerjaSerapanController extends Controller
         
         $query = DB::select(DB::raw($str));
         $table = Datatables::of($query);
-
+                 
         $table->editColumn('kd_satker', function ($row) {
             return $row->kd_satker ? $row->kd_satker : '';
         });
@@ -197,6 +197,7 @@ class KinerjaSerapanController extends Controller
             $dtYear = $Year[0]->year; 
         }
         $satkers = Satker::distinct()->where('kwn', '!=', 'NULL')->get(['kd_satker', 'nm_satker']); 
+        
         return view('admin.detailserapan.index', compact('breadcrumb', 'stable', 'years', 'dtYear', 'dtSatker', 'satkers'));
     }
 
