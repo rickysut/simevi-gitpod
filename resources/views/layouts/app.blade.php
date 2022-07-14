@@ -14,15 +14,15 @@
 	<meta name="msapplication-tap-highlight" content="no">
 	<!-- base css -->
 	
-	<link href="{{ asset('css/smartadmin/vendors.bundle.css') }}" rel="stylesheet" />
-	<link href="{{ asset('css/smartadmin/app.bundle.css') }}" rel="stylesheet" />
-    <link href="{{ asset('css/smartadmin/skin-master.css') }}" rel="stylesheet" />
+	<link href="{{ asset('css/smartadmin/vendors.bundle.css') }}"  />
+	<link href="{{ asset('css/smartadmin/app.bundle.css') }}"  />
+    <link href="{{ asset('css/smartadmin/skin-master.css') }}"  />
 	<!-- fav icon -->
 	<link href="{{ asset('img/logo-icon.png') }}" rel="icon" />
 	<link href="{{ asset('img/logo-icon.png') }}" rel="apple-touch-icon" sizes="180x180" />
 	<link href="{{ asset('img/logo-icon.png') }}" rel="safari-pinned-tab.svg" color="#5bbad5" />
 	<!-- page related css -->
-	<link href="{{ asset('css/smartadmin/fa-brands.css') }}" rel="stylesheet" />
+	<link href="{{ asset('css/smartadmin/fa-brands.css') }}"  />
     @yield('styles')
 </head>
 
